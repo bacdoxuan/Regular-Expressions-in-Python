@@ -4,7 +4,7 @@ import re
 
 def check_regex():
     """Using re.complie to check if an input string a valid regex or not.
-    
+
     Input:
     n: number of string you want to test
     the next n lines are your inputs. Each input wil return True if your input
@@ -21,4 +21,3 @@ def check_regex():
 
 if __name__ == '__main__':
     check_regex()
-

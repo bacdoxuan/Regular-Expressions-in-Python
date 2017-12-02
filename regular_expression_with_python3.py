@@ -5,6 +5,9 @@ import re
 dir(re)
 
 
+pattern = r'testpattern'
+string = r'teststring'
+repl = r'testrepl'
 # ==============================================================
 # common re function
 re.search(pattern, string)
