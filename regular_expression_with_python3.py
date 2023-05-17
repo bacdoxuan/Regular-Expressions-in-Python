@@ -154,3 +154,43 @@ pattern = r"\b(cat)\b"
 '''
 matches the word "cat" surrounded by word boundaries
 '''
+
+# add some patterns:
+"""
+Positive lookahead: (?=...)
+Asserts that the given subpattern can be matched here, without consuming characters
+"""
+# example
+pattern = r'foo(?=bar)'
+re.match(pattern, 'foobar') # will look ahead of 'bar' to find the 'foo', TRUE if matches the pattern
+
+"""
+Positive lookbehind: (?<=...)
+Ensures that the given pattern will match, ending at the current position in the expression. 
+The pattern must have a fixed width. Does not consume any characters.
+"""
+# example
+pattern = r'(?<=foo)bar'
+
+re.match(pattern, 'foobar') # will look behind of 'foo' to find the 'bar', TRUE if matches the pattern
+
+
+"""
+Negative lookahead: (?!...)
+Starting at the current position in the expression, ensures that the given pattern will not match. 
+Does not consume characters.
+"""
+# example
+
+pattern = r'foo(?!bar)'
+
+re.match(pattern, 'foobar foobazoka') # will find the text 'foo' but not end with 'bar', return the 'foo' in foobazoka
+
+"""
+Negative lookbehind: (?<!...)
+Ensures that the given pattern would not match and end at the current position in the expression. 
+The pattern must have a fixed width. Does not consume characters.
+"""
+
+pattern = r'(?<!not )foo'
+re.match(pattern, 'not foo but foo') # will find the text 'foo' but does not start with 'not', return 'foo' behind 'but'
